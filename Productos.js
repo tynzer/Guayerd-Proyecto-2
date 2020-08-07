@@ -5,7 +5,9 @@
 /////////////////
 
 /*
-Historia de usuario: "Como visitante del sitio, si deseo ver ofertas personalizadas, debería poder seleccionar la acción y ser dirigido a la misma".
+Historia de usuario:
+"Como visitante del sitio, si deseo ver ofertas personalizadas,
+ debería poder seleccionar la acción y ser dirigido a la misma".
 
 Se Necesita:
 - Cuando usuario ingresa a la pagina de listado de productos, informarle que tenemos ofertas personalizadas utilizando un popUp (confirm). Si indica que si, redirigirlo a la página correspondiente. Esta acción se dispara bajo las siguientes condiciones:
