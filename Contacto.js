@@ -18,4 +18,4 @@ Nota del arquitecto
 Formula para obtener números aleatorios dentro de un rango:
 Math.floor(Math.random() * MAX) + MIN;
 Donde MAX es el valor máximo del rango y MIN el mínimo
-*/
+ap*/
