@@ -270,8 +270,12 @@ input[type="reset"] {
 
 }
 
-
-
+/*Agregado nuevo proyecto 2 Martin*/
+.imghotsale{
+    display: flex;   /*es responsive el centrado  de imagen hotsale*/
+    margin: auto; 
+    width: 50%;
+}
 
 
 .clear {
