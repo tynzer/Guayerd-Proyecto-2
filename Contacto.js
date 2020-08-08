@@ -83,7 +83,7 @@ if (localStorage.getItem("nombre") != null){
 
 
 let decision = "";//este parámetro se guarda en local storage por unica vez la primera vez que entra
-let nombre;
+let nombre = "";
 let email = "";
 
 if (!localStorage.getItem ("decision")){// si esta vacio es porque entra por primera vez
