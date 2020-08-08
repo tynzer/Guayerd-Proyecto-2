@@ -13,6 +13,45 @@
 - Debemos recordar su decisión para no volver a preguntarle cada vez que ingrese.*/
 
 
+let decision = "";//este parámetro se guarda en local storage por unica vez la primera vez que entra
+let nombre = "";
+let email = "";
+
+if (!localStorage.getItem ("decision")){// si esta vacio es porque entra por primera vez
+
+    if (confirm("Desea ingresar su nombre y su email")){
+        decision = "si"
+        
+        do{
+            nombre = prompt ("Ingrese su nombre: ");
+            if (nombre != ""){
+                localStorage.setItem ("nombre", nombre);
+                alert ("Nombre guardado correctamente");
+            }
+            else{
+                alert ("No se acepta un campo vacío, vualva a intentarlo por favor");
+            }
+        }while (nombre === "")
+        
+        do{
+            email = prompt ("Ingrese su email: ");
+            if (email != "" && email.indexOf(".")!==-1 && email.indexOf("@")!==-1){
+                localStorage.setItem ("email", email);
+                alert ("Email guardado correctamente");
+            }
+            else{
+                alert ("Ingreso inválido, vualva a intentarlo por favor");
+            }
+        }while (email === "")
+
+    }else{
+        decision = "no"
+       
+    }
+    localStorage.setItem ("decision", decision);
+}
+
+
 //ERNESTO BUIATTI FINAL
 
 
