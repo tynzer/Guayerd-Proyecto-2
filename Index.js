@@ -1,3 +1,4 @@
+// script bienvenida //
 //  ERNESTO BUIATTI INICIO
 
 /*Historia de usuario: 
