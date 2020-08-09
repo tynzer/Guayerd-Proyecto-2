@@ -32,8 +32,10 @@ let promoArr2= "10HOTSALE para obtener un 10% de descuento";
 let promoArr3= "15HOTSALE para obtener un 15% de descuento";  
 let promoArr4= "20HOTSALE para obtener un 20% de descuento";   
 let promoArr5= "25HOTSALE para obtener un 25% de descuento";
+let promosgrupoArr= [promoArr1,promoArr2,promoArr3,promoArr4,promoArr5];
+let cantidadPromos = promosgrupoArr.length
+let ramdonPromo = 0;
 
-//let promosgrupoArr= [promoArr1,promoArr2,promoArr3,promoArr4,promoArr5];
 //let nombre= "martin";
 
 //localStorage.setItem("nombre",nombre); // este es ejemplo
@@ -43,11 +45,16 @@ function codigopromo(nombre,promo){
     alert("Estimado " + nombre +". Gracias por elegirnos! Le obsequiamos el código "+ promo+ " con su compra")
 }  
  
-let ramdonPromo = Math.floor(Math.random() * 5) + 1;
+function ramdonSorteo(cantidadPromos){
+    ramdonPromo = Math.floor(Math.random() * cantidadPromos) + 1;
+    return ramdonPromo;
+}
+
+//let ramdonPromo = Math.floor(Math.random() * 5) + 1;
 
 if (localStorage.getItem("nombre") != null){
-    
-   let lsNombre = localStorage.getItem("nombre")
+   ramdonSorteo(cantidadPromos)  //ejecuta la funcion del sorteo
+   let lsNombre = localStorage.getItem("nombre") //obtiene el nombre
 
     switch (ramdonPromo){
         case 1:
@@ -65,6 +72,8 @@ if (localStorage.getItem("nombre") != null){
         case 5:
         codigopromo(lsNombre,promoArr5);
             break;
+        default:
+        alert('En estos momentos no tenemos promociones, suscribase y le notificaremos futuras promociones');    
     }
 }
 
