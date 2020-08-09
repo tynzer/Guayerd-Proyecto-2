@@ -103,26 +103,26 @@ if (!localStorage.getItem ("decision")){// si esta vacio es porque entra por pri
         
         do{
             nombre = prompt ("Ingrese su nombre: ");
-            if (nombre != "" && nombre != null){
+            if (validarNombre(nombre)){
                 localStorage.setItem ("nombre", nombre);
                 alert ("Nombre guardado correctamente");
             }
             else{
-                alert ("No se acepta un campo vacío, vualva a intentarlo por favor");
+                alert ("No se acepta un campo vacío, vuelva a intentarlo por favor");
             }
-        }while (nombre === "")
+        }while (!validarNombre(nombre))
         
-        do{
+            do{
             email = prompt ("Ingrese su email: ");
-            if (email != "" && email.indexOf(".")!==-1 && email.indexOf("@")!==-1){
+            if (validarEmail(email)){
                 localStorage.setItem ("email", email);
                 alert ("Email guardado correctamente");
             }
             else{
-                alert ("Ingreso inválido, vualva a intentarlo por favor");
+                alert ("Ingresó un mail inválido, vuelva a intentarlo por favor");
             }
-        }while (email === "")
-
+        }while (!validarEmail(email))
+    
     }else{
         decision = "no"
        
@@ -131,6 +131,13 @@ if (!localStorage.getItem ("decision")){// si esta vacio es porque entra por pri
 }
 
 
+function validarNombre(nombre){
+    return(nombre!= "" && nombre!= null)
+}
+
+function validarEmail(email) {
+    return(email != "" && email.indexOf(".")!==-1 && email.indexOf("@")!==-1 && email != null)
+}
 //ERNESTO BUIATTI FINAL
 
 
