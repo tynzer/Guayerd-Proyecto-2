@@ -102,25 +102,23 @@ let hora= ahora.getHours();
 LUIS
 Historia de Usuario: 
 "Como cliente, deseo conocer si el visitante nos permite enviarle un email con novedades".
-
 Se necesita:
-
 - Preguntarle al visitante(Desde cualquier página) si podemos enviarle un email con novedades
 - Debemos guardar la respuesta para no tener que preguntar cada vez que ingrese.
 */
 
-// borrador
-/*
-if (Storage===undefined){
-    alert("NAVEGADOR ANTIGUO, ACTUALIZAR POR FAVOR.");
-}else{
-    if(localStorage.getItem("KeyCorreo"!=null)){
-        alert("Bienvendido Sr/a:"+localStorage.getItem("keyCorreo"));
-    }else{
-        let correo = prompt("Es tu primera visita por favor, ingrese su mail: ");
-        localStorage.setItem("KeyCorreo", correo);
-        let mostrar=localStorage.getItem("KeyCorreo");
-        console.log(mostrar);
+
+
+
+
+let novedades=" ";
+if(!localStorage.getItem("novedades")){
+    if(confirm("¿Quiere usted recibir Novedades? ")){ //con confirm evito crear una V.
+    novedades="si";
+    //
+    localStorage.setItem("novedades", novedades);
+    } else{
+        novedades="no";
+        localStorage.setItem("novedades",novedades);
     }
 }
-*/
