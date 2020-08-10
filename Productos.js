@@ -76,10 +76,8 @@ Redirección en JS:
 window.location.replace("ofertasPersonalizadas.html");
 */
 
-if(localStorage.getItem("decision", decision)==="si" && localStorage.getItem("email", email)!==null){
+if(localStorage.getItem("novedades", novedades)==="si"){
     if(confirm("Le informamos que tenemos ofertas especiales, ¿Desea ver?")){
          window.location.replace("ofertasPersonalizadas.html");
-    }else{
-        decision = "no";
     }
 }
