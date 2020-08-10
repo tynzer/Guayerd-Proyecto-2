@@ -76,7 +76,7 @@ if (!localStorage.getItem ("decision")){// si esta vacio es porque entra por pri
 
 //ERNESTO BUIATTI FINAL
 
-if(localStorage.getItem("email", email)!==null && localStorage.getItem("decision", decision)==="si"){
+if(localStorage.getItem("decision", decision)==="si" && localStorage.getItem("email", email)!==null){
     if(confirm("Le informamos que tenemos ofertas especiales, ¿Desea ver?")){
          window.location.replace("ofertasPersonalizadas.html");
     }else{
