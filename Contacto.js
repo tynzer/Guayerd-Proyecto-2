@@ -99,37 +99,40 @@ let email = "";
 if (!localStorage.getItem ("decision")){// si esta vacio es porque entra por primera vez
 
     if (confirm("Desea ingresar su nombre y su email")){
-        decision = "si"
-        
-        do{
-            nombre = prompt ("Ingrese su nombre: ");
-            if (validarNombre(nombre)){
-                localStorage.setItem ("nombre", nombre);
-                alert ("Nombre guardado correctamente");
-            }
-            else{
-                alert ("No se acepta un campo vacío, vuelva a intentarlo por favor");
-            }
-        }while (!validarNombre(nombre))
-        
-            do{
-            email = prompt ("Ingrese su email: ");
-            if (validarEmail(email)){
-                localStorage.setItem ("email", email);
-                alert ("Email guardado correctamente");
-            }
-            else{
-                alert ("Ingresó un mail inválido, vuelva a intentarlo por favor");
-            }
-        }while (!validarEmail(email))
-    
+        decision = "si";
+        ingresarNombre();
+        ingresarEmail();
     }else{
         decision = "no"
-       
     }
     localStorage.setItem ("decision", decision);
 }
 
+function ingresarNombre(){
+    do{
+        nombre = prompt ("Ingrese su nombre: ");
+        if (validarNombre(nombre)){
+            localStorage.setItem ("nombre", nombre);
+            alert ("Nombre guardado correctamente");
+        }
+        else{
+            alert ("No se acepta un campo vacío, vuelva a intentarlo por favor");
+        }
+    }while (!validarNombre(nombre))
+}
+
+function ingresarEmail(){
+    do{
+        email = prompt ("Ingrese su email: ");
+        if (validarEmail(email)){
+            localStorage.setItem ("email", email);
+            alert ("Email guardado correctamente");
+        }
+        else{
+            alert ("Ingresó un mail inválido, vuelva a intentarlo por favor");
+        }
+    }while (!validarEmail(email))
+}
 
 function validarNombre(nombre){
     return(nombre!= "" && nombre!= null)
