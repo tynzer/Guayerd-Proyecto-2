@@ -95,3 +95,32 @@ let hora= ahora.getHours();
    if (localStorage.getItem("nombre")){
     alert (texto + localStorage.getItem("nombre"))
    }
+
+
+
+/* luis
+LUIS
+Historia de Usuario: 
+"Como cliente, deseo conocer si el visitante nos permite enviarle un email con novedades".
+
+Se necesita:
+
+- Preguntarle al visitante(Desde cualquier página) si podemos enviarle un email con novedades
+- Debemos guardar la respuesta para no tener que preguntar cada vez que ingrese.
+*/
+
+// borrador
+/*
+if (Storage===undefined){
+    alert("NAVEGADOR ANTIGUO, ACTUALIZAR POR FAVOR.");
+}else{
+    if(localStorage.getItem("KeyCorreo"!=null)){
+        alert("Bienvendido Sr/a:"+localStorage.getItem("keyCorreo"));
+    }else{
+        let correo = prompt("Es tu primera visita por favor, ingrese su mail: ");
+        localStorage.setItem("KeyCorreo", correo);
+        let mostrar=localStorage.getItem("KeyCorreo");
+        console.log(mostrar);
+    }
+}
+*/
