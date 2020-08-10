@@ -34,50 +34,26 @@ let promoArr4= "20HOTSALE para obtener un 20% de descuento";
 let promoArr5= "25HOTSALE para obtener un 25% de descuento";
 let promosgrupoArr= [promoArr1,promoArr2,promoArr3,promoArr4,promoArr5];
 let cantidadPromos = promosgrupoArr.length;
-let ramdonPromo= 0;
+let randomPromo= 0;
 
-//let nombre= "martin";
-
-//localStorage.setItem("nombre",nombre); // este es ejemplo
-
+//let randomPromo = Math.floor(Math.random() * 5) + 1;
+ 
 function codigopromo(nombre,promo){
     //if (localStorage.getItem("nombre") != null){ // en el get item iria la key que pusieron
     alert("Estimado " + nombre +". Gracias por elegirnos! Le obsequiamos el código "+ promo+ " con su compra")
 }  
  
-function ramdonSorteo(cantidadPromos){
-    ramdonPromo = Math.floor(Math.random() * cantidadPromos) + 1;
-    return ramdonPromo;
+function randomSorteo(cantidadPromos){
+    randomPromo = Math.floor(Math.random() * cantidadPromos);
+    return randomPromo;
 }
-
-//let ramdonPromo = Math.floor(Math.random() * 5) + 1;
 
 if (localStorage.getItem("nombre") != null){
    let lsNombre = localStorage.getItem("nombre") //obtiene el nombre
-   ramdonSorteo(cantidadPromos)  //ejecuta la funcion del sorteo
-   
-
-    switch (ramdonPromo){
-        case 1:
-        codigopromo(lsNombre,promoArr1);
-            break;
-        case 2:
-        codigopromo(lsNombre,promoArr2);
-            break;
-        case 3:
-        codigopromo(lsNombre,promoArr3);
-            break;
-        case 4:
-        codigopromo(lsNombre,promoArr4);
-            break;
-        case 5:
-        codigopromo(lsNombre,promoArr5);
-            break;
-        default:
-        alert('En estos momentos no tenemos promociones, suscribase y le notificaremos futuras promociones');    
-    }
+   randomSorteo(cantidadPromos)  //ejecuta la funcion del sorteo
+   codigopromo(lsNombre,promosgrupoArr[randomPromo])
 }
-
+  
 //  ERNESTO BUIATTI INICIO
 
 /*Historia de usuario: 
@@ -99,40 +75,37 @@ let email = "";
 if (!localStorage.getItem ("decision")){// si esta vacio es porque entra por primera vez
 
     if (confirm("Desea ingresar su nombre y su email")){
-        decision = "si";
-        ingresarNombre();
-        ingresarEmail();
+        decision = "si"
+        
+        do{
+            nombre = prompt ("Ingrese su nombre: ");
+            if (validarNombre(nombre)){
+                localStorage.setItem ("nombre", nombre);
+                alert ("Nombre guardado correctamente");
+            }
+            else{
+                alert ("No se acepta un campo vacío, vuelva a intentarlo por favor");
+            }
+        }while (!validarNombre(nombre))
+        
+            do{
+            email = prompt ("Ingrese su email: ");
+            if (validarEmail(email)){
+                localStorage.setItem ("email", email);
+                alert ("Email guardado correctamente");
+            }
+            else{
+                alert ("Ingresó un mail inválido, vuelva a intentarlo por favor");
+            }
+        }while (!validarEmail(email))
+    
     }else{
         decision = "no"
+       
     }
     localStorage.setItem ("decision", decision);
 }
 
-function ingresarNombre(){
-    do{
-        nombre = prompt ("Ingrese su nombre: ");
-        if (validarNombre(nombre)){
-            localStorage.setItem ("nombre", nombre);
-            alert ("Nombre guardado correctamente");
-        }
-        else{
-            alert ("No se acepta un campo vacío, vuelva a intentarlo por favor");
-        }
-    }while (!validarNombre(nombre))
-}
-
-function ingresarEmail(){
-    do{
-        email = prompt ("Ingrese su email: ");
-        if (validarEmail(email)){
-            localStorage.setItem ("email", email);
-            alert ("Email guardado correctamente");
-        }
-        else{
-            alert ("Ingresó un mail inválido, vuelva a intentarlo por favor");
-        }
-    }while (!validarEmail(email))
-}
 
 function validarNombre(nombre){
     return(nombre!= "" && nombre!= null)
@@ -142,5 +115,7 @@ function validarEmail(email) {
     return(email != "" && email.indexOf(".")!==-1 && email.indexOf("@")!==-1 && email != null)
 }
 //ERNESTO BUIATTI FINAL
+
+
 
 
