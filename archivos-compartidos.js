@@ -29,6 +29,36 @@ if (!localStorage.getItem ("aceptaIngresarDatos")){ // si no existe ese key es p
     localStorage.setItem ("aceptaIngresarDatos", aceptaIngresarDatos);
 }
 
+
+//ERNESTO BUIATTI FINAL
+
+
+
+/* LUIS
+
+Historia de Usuario: 
+"Como cliente, deseo conocer si el visitante nos permite enviarle un email con novedades".
+Se necesita:
+- Preguntarle al visitante(Desde cualquier página) si podemos enviarle un email con novedades
+- Debemos guardar la respuesta para no tener que preguntar cada vez que ingrese.
+*/
+
+let novedades=""; // siempre "" sin espacios.
+if(!localStorage.getItem("novedades")){
+    if(confirm("¿Quiere usted recibir Novedades?")){
+        novedades="si";
+        if(!localStorage.getItem("email")){
+            ingresarEmail();
+        }
+        alert("Acepto las novedades en su mail "+localStorage.getItem("email"));
+        localStorage.setItem("novedades", novedades);
+	}else{
+        novedades="no";
+        localStorage.setItem("novedades",novedades);
+    }
+}
+
+
 function ingresarNombre(){ // insiste hasta que se ingrese correctamente el nombre
     do{
         nombre = prompt ("Ingrese su nombre: ");
@@ -59,31 +89,4 @@ function validarNombre(parametroNombre){
 
 function validarEmail(parametroEmail) {
     return (parametroEmail != "" && parametroEmail != null && parametroEmail.indexOf(".")!==-1 && parametroEmail.indexOf("@")!==-1);
-}
-//ERNESTO BUIATTI FINAL
-
-
-
-/* LUIS
-
-Historia de Usuario: 
-"Como cliente, deseo conocer si el visitante nos permite enviarle un email con novedades".
-Se necesita:
-- Preguntarle al visitante(Desde cualquier página) si podemos enviarle un email con novedades
-- Debemos guardar la respuesta para no tener que preguntar cada vez que ingrese.
-*/
-
-let novedades=""; // siempre "" sin espacios.
-if(!localStorage.getItem("novedades")){
-    if(confirm("¿Quiere usted recibir Novedades?")){
-        novedades="si";
-        if(!localStorage.getItem("email")){
-            ingresarEmail();
-        }
-        alert("Acepto las novedades en su mail "+localStorage.getItem("email"));
-        localStorage.setItem("novedades", novedades);
-	}else{
-        novedades="no";
-        localStorage.setItem("novedades",novedades);
-    }
 }

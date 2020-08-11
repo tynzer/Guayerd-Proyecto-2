@@ -38,7 +38,13 @@ let randomPromo= 0;
 
 //let randomPromo = Math.floor(Math.random() * 5) + 1;
  
-function codigopromo(nombre,promo){
+if (localStorage.getItem("nombre") != null){
+   let lsNombre = localStorage.getItem("nombre") //obtiene el nombre
+   randomSorteo(cantidadPromos)  //ejecuta la funcion del sorteo
+   codigoPromo(lsNombre,promosgrupoArr[randomPromo])
+}
+
+function codigoPromo(nombre,promo){
     //if (localStorage.getItem("nombre") != null){ // en el get item iria la key que pusieron
     alert("Estimado " + nombre +". Gracias por elegirnos! Le obsequiamos el código "+ promo+ " con su compra")
 }  
@@ -46,10 +52,4 @@ function codigopromo(nombre,promo){
 function randomSorteo(cantidadPromos){
     randomPromo = Math.floor(Math.random() * cantidadPromos);
     return randomPromo;
-}
-
-if (localStorage.getItem("nombre") != null){
-   let lsNombre = localStorage.getItem("nombre") //obtiene el nombre
-   randomSorteo(cantidadPromos)  //ejecuta la funcion del sorteo
-   codigopromo(lsNombre,promosgrupoArr[randomPromo])
 }
