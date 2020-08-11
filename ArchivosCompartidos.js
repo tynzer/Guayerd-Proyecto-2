@@ -72,16 +72,18 @@ Se necesita:
 - Preguntarle al visitante(Desde cualquier página) si podemos enviarle un email con novedades
 - Debemos guardar la respuesta para no tener que preguntar cada vez que ingrese.
 */
-let novedades=" ";
-if(localStorage.getItem("email")){
-	 if(!localStorage.getItem("novedades")){
-        if(confirm("¿Quiere usted recibir Novedades? ")){
+
+let novedades=""; // siempre "" sin espacios.
+if(!localStorage.getItem("novedades")){
+    if(confirm("¿Quiere usted recibir Novedades?")){
         novedades="si";
-        ingresarEmail();
-        localStorage.setItem("novedades", novedades);
-        } else{
-            novedades="no";
-            localStorage.setItem("novedades",novedades);
+        if(!localStorage.getItem("email")){
+            ingresarEmail();
         }
-	}
+        alert("Acepto las novedades en su mail "+localStorage.getItem("email"));
+        localStorage.setItem("novedades", novedades);
+	}else{
+        novedades="no";
+        localStorage.setItem("novedades",novedades);
+    }
 }
