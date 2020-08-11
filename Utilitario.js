@@ -12,28 +12,28 @@
 - Debemos recordar su decisión para no volver a preguntarle cada vez que ingrese.*/
 
 
-let decision = "";//este parámetro se guarda en local storage por unica vez la primera vez que entra
-let nombre="";
+let aceptaIngresarDatos = ""; // este parámetro se guarda en local storage por unica vez la primera vez que entra
+let nombre = "";
 let email = "";
 
-if (!localStorage.getItem ("decision")){// si esta vacio es porque entra por primera vez
+if (!localStorage.getItem ("aceptaIngresarDatos")){ // si no existe ese key es porque entra por primera vez
 
-    if (confirm("Desea ingresar su nombre y su email")){
-        decision = "si";
+    if (confirm("¿Desea ingresar su nombre y su email?")){ // si acepta pide los datos y guarda la decision
+        aceptaIngresarDatos = "si";
         ingresarNombre();
         ingresarEmail();
+        alert ("Datos guardados correctamente");
     }else{
-        decision = "no"
+        aceptaIngresarDatos = "no";
     }
-    localStorage.setItem ("decision", decision);
+    localStorage.setItem ("aceptaIngresarDatos", aceptaIngresarDatos);
 }
 
-function ingresarNombre(){
+function ingresarNombre(){ // insiste hasta que se ingrese correctamente el nombre
     do{
         nombre = prompt ("Ingrese su nombre: ");
         if (validarNombre(nombre)){
             localStorage.setItem ("nombre", nombre);
-            alert ("Nombre guardado correctamente");
         }
         else{
             alert ("No se acepta un campo vacío, vuelva a intentarlo por favor");
@@ -41,12 +41,11 @@ function ingresarNombre(){
     }while (!validarNombre(nombre))
 }
 
-function ingresarEmail(){
+function ingresarEmail(){ // insiste hasta que se ingrese correctamente el email
     do{
         email = prompt ("Ingrese su email: ");
         if (validarEmail(email)){
             localStorage.setItem ("email", email);
-            alert ("Email guardado correctamente");
         }
         else{
             alert ("Ingresó un mail inválido, vuelva a intentarlo por favor");
@@ -54,12 +53,12 @@ function ingresarEmail(){
     }while (!validarEmail(email))
 }
 
-function validarNombre(nombre){
-    return(nombre!= "" && nombre!= null)
+function validarNombre(parametroNombre){
+    return (parametroNombre!= "" && parametroNombre!= null);
 }
 
-function validarEmail(email) {
-    return(email != "" && email.indexOf(".")!==-1 && email.indexOf("@")!==-1 && email != null)
+function validarEmail(parametroEmail) {
+    return (parametroEmail != "" && parametroEmail != null && parametroEmail.indexOf(".")!==-1 && parametroEmail.indexOf("@")!==-1);
 }
 //ERNESTO BUIATTI FINAL
 
