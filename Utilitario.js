@@ -74,13 +74,17 @@ Se necesita:
 */
 
 let novedades=" ";
-if(!localStorage.getItem("novedades")){
-    if(confirm("¿Quiere usted recibir Novedades? ")){ //con confirm evito crear una V.
-    novedades="si";
-    ingresarEmail();
-    localStorage.setItem("novedades", novedades);
-    } else{
-        novedades="no";
-        localStorage.setItem("novedades",novedades);
+if(localStorage.getItem("email")){
+    //
+    }else{
+    if(!localStorage.getItem("novedades")){
+        if(confirm("¿Quiere usted recibir Novedades? ")){ //con confirm evito crear una V.
+        novedades="si";
+        ingresarEmail();
+        localStorage.setItem("novedades", novedades);
+        } else{
+            novedades="no";
+            localStorage.setItem("novedades",novedades);
+             }
+        }
     }
-}
