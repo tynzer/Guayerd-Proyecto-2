@@ -32,7 +32,7 @@ let hora= ahora.getHours();
 
  function getMessage(hora){
     if(hora >= 0 && hora<6){
-        return "Buenos Madrugadas ";  
+        return "Buenas Madrugadas ";  
     }
     if(hora >= 6 && hora<12){
         return "Buenos días ";  
