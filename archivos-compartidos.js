@@ -1,4 +1,4 @@
-//  ERNESTO BUIATTI INICIO
+//  ERNESTO BUIATTI 
 
 /*Historia de usuario: 
 "Como cliente, quiero personalizar la experiencia del usuario en mi sitio para generar *engagement y potenciar su interés en mis productos y servicios de manera de maximizar la posibilidad de compra"
@@ -12,7 +12,7 @@
 - Debemos recordar su decisión para no volver a preguntarle cada vez que ingrese.*/
 
 
-let aceptaIngresarDatos = ""; // este parámetro se guarda en local storage por unica vez la primera vez que entra
+let aceptaIngresarDatos = ""; // este parámetro se guarda en localstorage por unica vez la primera vez que entra
 let nombre = "";
 let email = "";
 
@@ -28,9 +28,6 @@ if (!localStorage.getItem ("aceptaIngresarDatos")){ // si no existe ese key es p
     }
     localStorage.setItem ("aceptaIngresarDatos", aceptaIngresarDatos);
 }
-
-
-//ERNESTO BUIATTI FINAL
 
 
 
@@ -58,6 +55,7 @@ if(!localStorage.getItem("novedades")){
     }
 }
 
+// declaracion de funciones 
 
 function ingresarNombre(){ // insiste hasta que se ingrese correctamente el nombre
     do{
