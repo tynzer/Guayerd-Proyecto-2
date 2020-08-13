@@ -26,4 +26,4 @@ if(localStorage.getItem("novedades")==="si"){
     if(confirm("Le informamos que tenemos ofertas especiales, ¿Desea ver?")){
          window.location.replace("ofertasPersonalizadas.html");
     }
-}
+} 
