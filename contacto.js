@@ -24,9 +24,7 @@ Math.floor(Math.random() * MAX) + MIN;
 Donde MAX es el valor máximo del rango y MIN el mínimo
 */
 
-
-// Poner el mobre del get localsotre
-
+ 
 let promoArr1= "5HOTSALE para obtener un 5% de descuento";  
 let promoArr2= "10HOTSALE para obtener un 10% de descuento";   
 let promoArr3= "15HOTSALE para obtener un 15% de descuento";  
