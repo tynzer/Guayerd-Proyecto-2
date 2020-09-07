@@ -42,17 +42,17 @@
             <div class="contac">
                     <div class="input_name">
                         <label for="name" class="namelabel">Nombre</label>
-                        <input class="name" type="text" name="name" placeholder="Escriba su nombre" maxlength="40"><!--luis antes no estaba max caract-->
+                        <input id = "nombre" class="name" type="text" name="name" placeholder="Escriba su nombre" maxlength="40"><!--luis antes no estaba max caract-->
                     </div>
                 
                     <div class="input_email">
                         <label for="email" class="emaillabel">Email</label>
-                        <input class="email" type="text" name="email" placeholder="Escriba su email" maxlength="40"> <!--luis antes no estaba max caract-->
+                        <input id = "email" class="email" type="text" name="email" placeholder="Escriba su email" maxlength="40"> <!--luis antes no estaba max caract-->
                     </div>
 
                     <div class="input_topic">
                         <label for="topic" class="tocpiclabel">Tema</label>
-                        <select class="select" name="topic">
+                        <select id = "tema" class="select" name="topic">
                             <option value="Venta">Venta</option>
                             <option value="Trabajo">Trabajo</option>
                             <option value="Reparación">Reparación</option>
@@ -61,15 +61,15 @@
                     </div>
                     <div class="input_message">
                         <label for="message" class="messagelabel">Mensaje</label>
-                        <textarea class="message" name="message" rows="5"  cols="23"  placeholder="Escriba aquí su mensaje. 140 caract máximo." maxlength="140"></textarea><br> <!--luis antes no estaba max caract-->
+                        <textarea id = "mensaje" class="message" name="message" rows="5"  cols="23"  placeholder="Escriba aquí su mensaje. 140 caract máximo." maxlength="140"></textarea><br> <!--luis antes no estaba max caract-->
                     </div>
                     <div></div>
                     <div>
                     <input type="hidden" name="grupo" value="d" />
                     </div>
                     <div class="submit_form">
-                        <input type="reset"  class="btn-reset" value="Borrar">  
-                        <input type="submit" class="btn-submit" value="Enviar">
+                        <input id = "borrar" type="reset"  class="btn-reset" value="Borrar">  
+                        <input id = "enviar" type="submit" class="btn-submit" value="Enviar">
                     </div>
                 </div>
             </form>
