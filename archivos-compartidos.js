@@ -12,21 +12,31 @@
 - Debemos recordar su decisión para no volver a preguntarle cada vez que ingrese.*/
 
 
-let aceptaIngresarDatos = ""; // este parámetro se guarda en localstorage por unica vez la primera vez que entra
+let aceptaIngresarDatos = false; // este parámetro se guarda en localstorage por unica vez la primera vez que entra
 let nombre = "";
-let email = "";
+let eMail = "";
 
 if (!localStorage.getItem ("aceptaIngresarDatos")){ // si no existe ese key es porque entra por primera vez
 
     if (confirm("¿Desea ingresar su nombre y su email?")){ // si acepta pide los datos y guarda la decision
-        aceptaIngresarDatos = "si";
+        aceptaIngresarDatos = true;
         ingresarNombre();
         ingresarEmail();
         alert ("Datos guardados correctamente");
     }else{
-        aceptaIngresarDatos = "no";
+        aceptaIngresarDatos = false;
     }
     localStorage.setItem ("aceptaIngresarDatos", aceptaIngresarDatos);
+    fetch('https://demo2420474.mockable.io/userData',{
+    method:'POST',
+    body:JSON.stringify({ token:"", name:nombre, email:eMail, sendEmail: aceptaIngresarDatos }),
+    headers:{'Content-Type':'application/json'}
+}).then((res)=>{
+    return res.json()
+}).then((res)=>{
+    console.log("DATOS ENVIADOS",res)
+})
+
 }
 
 
@@ -40,17 +50,17 @@ Se necesita:
 - Debemos guardar la respuesta para no tener que preguntar cada vez que ingrese.
 */
 
-let novedades=""; // siempre "" sin espacios.
+let novedades = false; // siempre "" sin espacios.
 if(!localStorage.getItem("novedades")){
     if(confirm("¿Quiere usted recibir Novedades?")){
-        novedades="si";
+        novedades = true;
         if(!localStorage.getItem("email")){
             ingresarEmail();
         }
         alert("Acepto las novedades en su mail "+localStorage.getItem("email"));
         localStorage.setItem("novedades", novedades);
 	}else{
-        novedades="no";
+        novedades = false;
         localStorage.setItem("novedades",novedades);
     }
 }
@@ -71,14 +81,14 @@ function ingresarNombre(){ // insiste hasta que se ingrese correctamente el nomb
 
 function ingresarEmail(){ // insiste hasta que se ingrese correctamente el email
     do{
-        email = prompt ("Ingrese su email: ");
-        if (validarEmail(email)){
-            localStorage.setItem ("email", email);
+        eMail = prompt ("Ingrese su email: ");
+        if (validarEmail(eMail)){
+            localStorage.setItem ("email", eMail);
         }
         else{
             alert ("Ingresó un mail inválido, vuelva a intentarlo por favor");
         }
-    }while (!validarEmail(email))
+    }while (!validarEmail(eMail))
 }
 
 function validarNombre(parametroNombre){
@@ -88,3 +98,26 @@ function validarNombre(parametroNombre){
 function validarEmail(parametroEmail) {
     return (parametroEmail != "" && parametroEmail != null && parametroEmail.indexOf(".")!==-1 && parametroEmail.indexOf("@")!==-1);
 }
+////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+/*
+
+https://demo2420474.mockable.io/userData
+
+
+
+{"comentarios":[
+    {
+        "id":1,
+        "message": "Holaa!"
+    },
+    {
+        "id":2,
+        "message": "Buenas Gus."
+    }
+]}*/
