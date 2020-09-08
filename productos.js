@@ -50,9 +50,9 @@ function renderProductos(productos) {
                         <div class="flexbox-productos">
                             <h2>${producto.title}</h2>
                             <p>${producto.description}.</p>
+                              <p>Precio: <span id="precio">${producto.price}</span> ${producto.currency}<br><span id="descuento">${producto.discountPrice ? ` Precio de descuento: ${producto.discountPrice} ${producto.currency}` : "" }</span><br> Stock: ${producto.inStock}</p>
                         </div>
-                    </div>
-                    <p>Precio: <span id="precio">${producto.price}</span> ${producto.currency} Stock: ${producto.inStock} <span id="descuento">${producto.discountPrice || ""}</span></p>`;
+                    </div>`;
         fragmentos += fragmento
         console.log(fragmentos)
     });
