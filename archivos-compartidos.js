@@ -13,7 +13,6 @@
 
 let aceptaIngresarDatos = false; // este parámetro se guarda en localstorage por unica vez la primera vez que entra
 let nombre = "";
-let email = "";
 let eMail = "";
 
 if (!localStorage.getItem ("aceptaIngresarDatos")){ // si no existe ese key es porque entra por primera vez
@@ -78,14 +77,14 @@ function ingresarNombre(){ // insiste hasta que se ingrese correctamente el nomb
 
 function ingresarEmail(){ // insiste hasta que se ingrese correctamente el email
     do{
-        email = prompt ("Ingrese su email: ");
-        if (validarEmail(email)){
-            localStorage.setItem ("email", email);
+        eMail = prompt ("Ingrese su email: ");
+        if (validarEmail(eMail)){
+            localStorage.setItem ("email", eMail);
         }
         else{
             alert ("Ingresó un mail inválido, vuelva a intentarlo por favor");
         }
-    }while (!validarEmail(email))
+    }while (!validarEmail(eMail))
 }
 
 function validarNombre(parametroNombre){
