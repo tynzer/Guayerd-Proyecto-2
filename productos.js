@@ -17,10 +17,8 @@ function renderProductos(productos) {
                         <div class="flexbox-productos">
                             <h2>${producto.title}</h2>
                             <p>${producto.description}.</p>
-                            <p>
-                                <span id="descuento"><b>${producto.discountPrice ? ` Precio de descuento: ${producto.discountPrice} ${producto.currency}` : "" }</b></span><br>
-                                ${producto.discountPrice ? `<s><span id="precio">Precio: ${producto.price}</span> ${producto.currency}</s>` : `<span id="precio">Precio: ${producto.price}</span> ${producto.currency}` }<br>
-                                Stock: ${producto.inStock}
+                            <p>${producto.discountPrice ? `<span id="precio"><s> Precio: ${producto.price} ${producto.currency}</s></span><br><span id="descuento"><b> Precio de descuento: ${producto.discountPrice} ${producto.currency}</b>`  : `Precio: ${producto.price} ${producto.currency}`}<br>
+                            Stock: ${producto.inStock}
                             </p>
                         </div>
                     </div>`;
