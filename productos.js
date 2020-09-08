@@ -17,7 +17,11 @@ function renderProductos(productos) {
                         <div class="flexbox-productos">
                             <h2>${producto.title}</h2>
                             <p>${producto.description}.</p>
-                              <p>Precio: <span id="precio">${producto.price}</span> ${producto.currency}<br><span id="descuento">${producto.discountPrice ? ` Precio de descuento: ${producto.discountPrice} ${producto.currency}` : "" }</span><br> Stock: ${producto.inStock}</p>
+                            <p>
+                                <span id="descuento"><b>${producto.discountPrice ? ` Precio de descuento: ${producto.discountPrice} ${producto.currency}` : "" }</b></span><br>
+                                ${producto.discountPrice ? `<s><span id="precio">Precio: ${producto.price}</span> ${producto.currency}</s>` : `<span id="precio">Precio: ${producto.price}</span> ${producto.currency}` }<br>
+                                Stock: ${producto.inStock}
+                            </p>
                         </div>
                     </div>`;
         fragmentos += fragmento
