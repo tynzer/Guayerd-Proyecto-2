@@ -79,17 +79,24 @@ const fnombre = document.querySelector("#nombre");
 const femail = document.querySelector("#email");
 const tema = document.querySelector("#tema");
 const mensaje = document.querySelector("#mensaje");
+const telefono = document.querySelector("#telefono");
 let form = document.querySelector("#form");
 const btnSubmit = document.querySelector("#enviar")
 
+let regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
+
 form.addEventListener("submit", formHandler);
+femail.addEventListener("input", emailHandler);
+fnombre.addEventListener("input", nombreHandler);
+btn.addEventListener ("click", btnHandler);
+
 
 function formHandler(event){
     event.preventDefault();
     console.log("se cancelo el default");
     fetch('https://demo2420474.mockable.io/submitForm',{
     method:'POST',
-    body:JSON.stringify({name:fnombre.value, email:femail.value, phone:"",subject:tema.value, message:mensaje.value}),
+    body:JSON.stringify({name:fnombre.value, email:femail.value, phone:telefono.value,subject:tema.value, message:mensaje.value}),
     headers:{'Content-Type':'application/json'}
 }).then((res)=>{
     return res.json()
@@ -98,6 +105,42 @@ function formHandler(event){
 });
 }
 
+function emailHandler(){
+    if (regex.test(femail.value)) {
+      femail.classList.remove("invalid");
+      femail.classList.add("valid");
+      spanEmail.innerText = "*Campo obligatorio: ok";
+    } else {
+      femail.classList.remove("valid");
+      femail.classList.add("invalid");
+      //spanEmail.innerText = "*Campo obligatorio: el campo debe ser del tipo 'ejemplo@ejemplo.com'";//
+    }
+  }
+  
+  function nombreHandler(){ 
+    if (fnombre.value === null || fnombre.value === "") {
+      fnombre.classList.remove("valid");
+      fnombre.classList.add("invalid");
+      spanNombre.innerText = "*Campo obligatorio: no se aceptan campos vacios";
+    } else {
+      fnombre.classList.remove("invalid");
+      fnombre.classList.add("valid");
+      //spanNombre.innerText = "*Campo obligatorio: ok";//
+    }
+  }
+  function btnHandler(){
+    console.log("se hizo click en boton")
+    if (fnombre.value === null || fnombre.value === "") {
+      fnombre.setCustomValidity("No se aceptan campos vacíos!!!");
+    } else {
+      fnombre.setCustomValidity("");
+    }
+    if (regex.test(femail.value)) {
+      femail.setCustomValidity("");
+    } else {
+      //email.setCustomValidity("El campo debe ser del tipo 'ejemplo@ejemplo.com' !!!");//
+    }
+  }
 
 
  

@@ -186,6 +186,14 @@ div.bici p:hover {
 }
 
 /* css  __________________contacto__________________*/
+
+.invalid{
+    background: rgb(247, 133, 133);
+}
+
+.valid{
+    background: rgb(163, 250, 163);
+}
 .contac {
     width: 450px;
     position: static; /*el fomulario no se suporpoe*/
