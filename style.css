@@ -199,7 +199,7 @@ h1 {
 }
 
 
-.input_name, .input_email, .input_topic , .input_message {
+.input_phone, .input_name, .input_email, .input_topic , .input_message {
     
     display: inline-flex; /*alinea el formulario*/
     font-size: 20px;
@@ -214,7 +214,7 @@ h1 {
     font-size: 20px;
 }
 
-.name,.email ,.select, .message{
+.phone, .name,.email ,.select, .message{
     font-size: 20px;
 }
 
