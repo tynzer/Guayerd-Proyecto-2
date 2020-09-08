@@ -22,7 +22,6 @@ function renderProductos(productos) {
                         </div>
                     </div>`;
         fragmentos += fragmento
-        console.log(fragmentos)
     });
     container.innerHTML = fragmentos;
 }
