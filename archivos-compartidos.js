@@ -105,19 +105,3 @@ function validarEmail(parametroEmail) {
 
 
 
-/*
-
-https://demo2420474.mockable.io/userData
-
-
-
-{"comentarios":[
-    {
-        "id":1,
-        "message": "Holaa!"
-    },
-    {
-        "id":2,
-        "message": "Buenas Gus."
-    }
-]}*/
