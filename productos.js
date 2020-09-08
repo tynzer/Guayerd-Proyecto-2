@@ -11,7 +11,6 @@ function renderProductos(productos) {
     const container = document.querySelector('#container');
     let fragmentos = "";
     productos.forEach(function (producto) {
-        console.log(productos)
         let fragmento = `<div class="bici flexbox">
                         <img class="flexbox-productos" src="${producto.imgUrl}">
                         <div class="flexbox-productos">
