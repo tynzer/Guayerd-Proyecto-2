@@ -80,7 +80,7 @@ const femail = document.querySelector("#email");
 const tema = document.querySelector("#tema");
 const mensaje = document.querySelector("#mensaje");
 const telefono = document.querySelector("#telefono");
-let form = document.querySelector("#form");
+const form = document.querySelector("#form");
 const btnSubmit = document.querySelector("#enviar");
 const btnReset = document.querySelector("#borrar");
 
@@ -96,11 +96,18 @@ btnReset.addEventListener ("click", btnResetHandler);
 function formHandler(event){
     event.preventDefault();
     console.log("se cancelo el default");
-    fetch('https://demo2420474.mockable.io/submitForm',{
+    const URL = 'https://demo2420474.mockable.io/submitForm';
+    fetch(URL,{
     method:'POST',
     body:JSON.stringify({name:fnombre.value, email:femail.value, phone:telefono.value,subject:tema.value, message:mensaje.value}),
     headers:{'Content-Type':'application/json'}
 }).then((res)=>{
+    fnombre.value = "";
+    femail.value = "";
+    telefono.value = "";
+    tema.value = "";
+    mensaje.value = "";
+    btnResetHandler();
     return res.json()
 }).then((res)=>{
     console.log("FORMULARIO ENVIADO",res);
@@ -137,7 +144,7 @@ function btnSubmitHandler(){
   if (regex.test(femail.value)) {
     femail.setCustomValidity("");
   } else {
-    email.setCustomValidity("El campo debe ser del tipo 'ejemplo@ejemplo.com' !!!");//
+    femail.setCustomValidity("El campo debe ser del tipo 'ejemplo@ejemplo.com' !!!");//
   }
 }
 
