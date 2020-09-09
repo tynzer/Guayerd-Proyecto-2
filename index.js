@@ -12,7 +12,7 @@ Formato del objeto a recibir:
 }`
 */
 
-let url="http://demo2420474.mockable.io/getHomeBanner";
+let url="https://demo2420474.mockable.io/getHomeBanner";
 fetch(url)                          //peticion a la URL
 .then(function(response){           //se genera la promesa esperando al serv responda
     return response.json();         //se recibe la RTA y se tranforma ne JSON
@@ -27,3 +27,6 @@ function renderImagenes(imagenes){
     let img     =document.querySelector("#banner");
     img.innerHTML=`<a href = "${imagenes.link}" ><img title = "${imagenes.title}" src = "${imagenes.imgUrl}"></a>`;
     };
+
+
+/* ... */
