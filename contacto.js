@@ -81,14 +81,16 @@ const tema = document.querySelector("#tema");
 const mensaje = document.querySelector("#mensaje");
 const telefono = document.querySelector("#telefono");
 let form = document.querySelector("#form");
-const btnSubmit = document.querySelector("#enviar")
+const btnSubmit = document.querySelector("#enviar");
+const btnReset = document.querySelector("#borrar");
 
 let regex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
 
 form.addEventListener("submit", formHandler);
 femail.addEventListener("input", emailHandler);
 fnombre.addEventListener("input", nombreHandler);
-btn.addEventListener ("click", btnHandler);
+btnSubmit.addEventListener ("click", btnSubmitHandler);
+btnReset.addEventListener ("click", btnResetHandler);
 
 
 function formHandler(event){
@@ -101,46 +103,50 @@ function formHandler(event){
 }).then((res)=>{
     return res.json()
 }).then((res)=>{
-    console.log("FORMULARIO ENVIADO",res)
+    console.log("FORMULARIO ENVIADO",res);
 });
 }
 
 function emailHandler(){
-    if (regex.test(femail.value)) {
-      femail.classList.remove("invalid");
-      femail.classList.add("valid");
-      spanEmail.innerText = "*Campo obligatorio: ok";
-    } else {
-      femail.classList.remove("valid");
-      femail.classList.add("invalid");
-      //spanEmail.innerText = "*Campo obligatorio: el campo debe ser del tipo 'ejemplo@ejemplo.com'";//
-    }
+  if (regex.test(femail.value)) {
+    femail.classList.remove("invalid");
+    femail.classList.add("valid");
+  } else {
+    femail.classList.remove("valid");
+    femail.classList.add("invalid");
   }
-  
-  function nombreHandler(){ 
-    if (fnombre.value === null || fnombre.value === "") {
-      fnombre.classList.remove("valid");
-      fnombre.classList.add("invalid");
-      spanNombre.innerText = "*Campo obligatorio: no se aceptan campos vacios";
-    } else {
-      fnombre.classList.remove("invalid");
-      fnombre.classList.add("valid");
-      //spanNombre.innerText = "*Campo obligatorio: ok";//
-    }
-  }
-  function btnHandler(){
-    console.log("se hizo click en boton")
-    if (fnombre.value === null || fnombre.value === "") {
-      fnombre.setCustomValidity("No se aceptan campos vacíos!!!");
-    } else {
-      fnombre.setCustomValidity("");
-    }
-    if (regex.test(femail.value)) {
-      femail.setCustomValidity("");
-    } else {
-      //email.setCustomValidity("El campo debe ser del tipo 'ejemplo@ejemplo.com' !!!");//
-    }
-  }
+}
 
+function nombreHandler(){ 
+  if (fnombre.value === null || fnombre.value === "") {
+    fnombre.classList.remove("valid");
+    fnombre.classList.add("invalid");
+  } else {
+    fnombre.classList.remove("invalid");
+    fnombre.classList.add("valid");
+  }
+}
+
+function btnSubmitHandler(){
+  console.log("se hizo click en boton")
+  if (fnombre.value === null || fnombre.value === "") {
+    fnombre.setCustomValidity("No se aceptan campos vacíos!!!");
+  } else {
+    fnombre.setCustomValidity("");
+  }
+  if (regex.test(femail.value)) {
+    femail.setCustomValidity("");
+  } else {
+    email.setCustomValidity("El campo debe ser del tipo 'ejemplo@ejemplo.com' !!!");//
+  }
+}
+
+function btnResetHandler(){
+  fnombre.classList.remove("valid");
+  fnombre.classList.remove("invalid");
+  femail.classList.remove("invalid");
+  femail.classList.remove("valid");
+}
+  
 
  
