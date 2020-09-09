@@ -27,3 +27,6 @@ function renderImagenes(imagenes){
     let img     =document.querySelector("#banner");
     img.innerHTML=`<a href = "${imagenes.link}" ><img title = "${imagenes.title}" src = "${imagenes.imgUrl}"></a>`;
     };
+
+
+/* ... */
