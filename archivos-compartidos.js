@@ -11,6 +11,14 @@
 - Validar que no ingrese datos vacíos. En el caso del email, solo validar que lo ingresado contenga "." y "@"
 - Debemos recordar su decisión para no volver a preguntarle cada vez que ingrese.*/
 
+/*Realizar un refactor de la accion de capturar datos del usuario. Se mantiene el guardado en localStorage y se agrega enviar los datos al servidor del cliente
+
+URL: https://demo2420474.mockable.io/userData (POST)
+
+formato del objeto:
+{ token:"", name:"", email:"", sendEmail: boolean }
+ */
+
 let aceptaIngresarDatos = false; // este parámetro se guarda en localstorage por unica vez la primera vez que entra
 let nombre = "";
 let eMail = "";
@@ -26,7 +34,8 @@ if (!localStorage.getItem ("aceptaIngresarDatos")){ // si no existe ese key es p
         aceptaIngresarDatos = false;
     }
     localStorage.setItem ("aceptaIngresarDatos", aceptaIngresarDatos);
-    fetch('https://demo2420474.mockable.io/userData',{
+    const URL = 'https://demo2420474.mockable.io/userData';
+    fetch(URL,{
     method:'POST',
     body:JSON.stringify({ token:"GRUPOD2020", name:nombre, email:eMail, sendEmail: aceptaIngresarDatos }),
     headers:{'Content-Type':'application/json'}

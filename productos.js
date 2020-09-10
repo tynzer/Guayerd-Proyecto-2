@@ -1,3 +1,17 @@
+/*Cuando el usuario acceda a la página de productos, debemos pedirle al servidor el listado de productos a mostrar en pantalla. Hay que mantener el estilo de sitio pero los datos deben pedirse al backend.
+
+URL: https://demo2420474.mockable.io/productList (GET)
+
+[{"title": "", "description": "", "imgUrl": "", "inStock": 99, "price": 9999, "currency": "", "discountPrice": 9999}]
+ */
+/*Una vez obtenido el listado del servidor, procesarlo y generar el listado en HTML con el estilo propio del sitio.
+
+Agregar en HTML el campo price (Precio)
+Agregar en HTML el campo inStock (Unidades)
+Si llega el campo "discountPrice", mostrar el campo "price" tachado y poner el valor con descuento resaltado
+El criterio estético queda a cargo del equipo respetando el estilo actual de la página.
+ */
+
 fetch("https://demo2420474.mockable.io/productList").then(function (responsive) {
     //lee la promesa 
     return responsive.json();
